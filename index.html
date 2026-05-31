@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>MI WEB</h1>
+        <nav>
+            <ul>
+                
+                <li><a href="destacados.html">Destacados</a></li>
+                <li><a href="listado.html">Listado</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Menú de Meriendas</h2>
+            <ul id="lista-meriendas">
+               
+            </ul>
+            <br>
+            <button id="btn-contar">Contar Meriendas</button>
+            <p id="resultado-contador" style="margin-top: 10px; font-weight: bold;"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Programación3</p>
+    </footer>
+
+    <script>
+
+        // 5 meriendas 
+        const meriendas = ["Café con Leche", "Tostadas con Manteca", "Medialunas", "Licuado de Banana", "Sándwich de Miga"];
+        
+        const listaUI = document.getElementById('lista-meriendas');
+        const btnContar = document.getElementById('btn-contar');
+        const resultadoContador = document.getElementById('resultado-contador');
+
+        // forEach
+        meriendas.forEach(merienda => {
+            const li = document.createElement('li');
+            li.textContent = merienda;
+            listaUI.appendChild(li);
+        });
+
+        // DOM
+        btnContar.addEventListener('click', () => {
+            resultadoContador.textContent = `tiene ${meriendas.length} meriendas disponibles.`;
+        });
+    </script>
+</body>
+</html>
