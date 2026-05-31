@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destacados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>MI WEB</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="listado.html">Listado</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Selección de Platos Favoritos</h2>
+            <p>Hacé clic sobre las tarjetas para seleccionarlas:</p>
+            
+            <div class="grid-tarjetas">
+                <div class="tarjeta-item" onclick="seleccionarTarjeta(this)">Pizza</div>
+                <div class="tarjeta-item" onclick="seleccionarTarjeta(this)">Hamburguesa</div>
+                <div class="tarjeta-item" onclick="seleccionarTarjeta(this)">Milanesa</div>
+                <div class="tarjeta-item" onclick="seleccionarTarjeta(this)">Empanadas</div>
+            </div>
+
+            <p id="contador-seleccion" style="margin-top: 20px; font-weight: bold; color: #2c3e50;">
+                Tarjetas seleccionadas: 0
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Programación3</p>
+    </footer>
+
+    <script>
+        function seleccionarTarjeta(elemento) {
+
+          // Uso classList toggle 
+            elemento.classList.toggle('seleccionada');
+            
+        // Contar cuántas tienen la clase  actualmente
+            const seleccionadas = document.querySelectorAll('.seleccionada').length;
+            
+     // DOM en tiempo real
+            document.getElementById('contador-seleccion').textContent = `Tarjetas seleccionadas: ${seleccionadas}`;
+        }
+    </script>
+</body>
+</html>
