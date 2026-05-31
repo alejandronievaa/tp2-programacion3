@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>MI WEB</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="destacados.html">Destacados</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Alimentos</h2>
+            <br>
+            <button id="btn-todos">Mostrar Todos</button>
+            <button id="btn-frutas">Solo Frutas</button>
+            
+            <ul id="lista-elementos" style="margin-top: 20px; padding-left: 20px;">
+               
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Programación3</p>
+    </footer>
+
+    <script>
+
+        // 6 elementos 
+        const elementos = [
+            { nombre: "Manzana", categoria: "fruta" },
+            { nombre: "Banana", categoria: "fruta" },
+            { nombre: "Lechuga", categoria: "verdura" },
+            { nombre: "Frutilla", categoria: "fruta" },
+            { nombre: "Tomate", categoria: "verdura" },
+            { nombre: "Zanahoria", categoria: "verdura" }
+        ];
+
+        const listaUI = document.getElementById('lista-elementos');
+
+        function renderizar(lista) {
+            listaUI.innerHTML = "";
+            lista.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.nombre} [${item.categoria.toUpperCase()}]`;
+                listaUI.appendChild(li);
+            });
+        }
+
+// Boton   Mostrar Todos
+        document.getElementById('btn-todos').addEventListener('click', () => {
+            renderizar(elementos);
+        });
+
+        // Boton    .filter()
+        document.getElementById('btn-frutas').addEventListener('click', () => {
+            const soloFrutas = elementos.filter(el => el.categoria === 'fruta');
+            renderizar(soloFrutas);
+        });
+
+ // Carga inicial
+        renderizar(elementos);
+    </script>
+</body>
+</html>
